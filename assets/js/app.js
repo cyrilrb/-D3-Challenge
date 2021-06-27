@@ -65,7 +65,7 @@ d3.csv("assets/data/data.csv").then(function(sumData) {
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", "10")
-    .attr("fill", "#06A6B9")
+    .attr("fill", "#89bdd3")
     .attr("opacity", ".5");
 
 
@@ -95,7 +95,7 @@ circleLabels
     // Step 6: Initialize tool tip
     // ==============================
     var toolTip = d3.tip()
-      .attr("class", "tooltip")
+      .attr("class", "d3-tip")
       .offset([80, -60])
       .html(function(d) {
         return (`${d.state}<br>Poverty: ${d.poverty}%<br>Obesity: ${d.obesity}%`);
@@ -113,7 +113,7 @@ circleLabels
       toolTip.show(data, this);
     })
       // onmouseout event
-      .on("mouseout", function(data, index) {
+      .on("mouseout", function(data) {
         toolTip.hide(data);
       });
                    
